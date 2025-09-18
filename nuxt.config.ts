@@ -12,6 +12,12 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: [
+        'customs-remaining-organised-luther.trycloudflare.com',
+        'localhost',
+      ],
+    },
   },
 
   modules: ['shadcn-nuxt'],
