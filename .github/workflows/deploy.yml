@@ -13,23 +13,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 1. Устанавливаем pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9 # или 8, если у тебя в проекте pnpm 8
+          run_install: false
+
+      # 2. Настраиваем Node.js и включаем кэш для pnpm
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9 # или 8, если у тебя в проекте pnpm 8
-
+      # 3. Ставим зависимости
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # 4. Собираем Nuxt
       - name: Build project
         run: pnpm build
 
+      # 5. Загружаем билд как артефакт
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
