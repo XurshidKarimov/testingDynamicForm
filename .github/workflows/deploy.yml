@@ -23,7 +23,7 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9
-          run_install: false # отключаем авто-install, чтобы явно вызвать ниже
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
