@@ -17,7 +17,6 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9 # или 8, если у тебя в проекте pnpm 8
           run_install: false
 
       # 2. Настраиваем Node.js и включаем кэш для pnpm
